@@ -70,7 +70,7 @@ const Home = () => {
     camera.position.z = 100;
 
     const animate = () => {
-      planets.forEach((planet, index) => {
+      planets.forEach((planet) => {
         const speed = 0.001 / Math.sqrt(planet.userData.distance);
         const angle = Date.now() * speed;
         planet.position.x = Math.cos(angle) * planet.userData.distance;
@@ -117,7 +117,7 @@ const Home = () => {
       window.removeEventListener('click', handleClick);
       mountRef.current?.removeChild(renderer.domElement);
     };
-  }, []);
+  }, [planetsData]);
 
   return (
     <div className="relative h-screen">
@@ -127,7 +127,7 @@ const Home = () => {
       {selectedPlanet && (
         <div className="absolute top-5 left-5 bg-gray-800 bg-opacity-70 p-5 rounded-lg text-white">
           <h1 className="text-3xl">{selectedPlanet}</h1>
-          <p className="mt-3">You've selected {selectedPlanet}. This is a simplified model for demonstration.</p>
+          <p className="mt-3">You&apos;ve selected {selectedPlanet}. This is a simplified model for demonstration.</p>
         </div>
       )}
       <div className="absolute bottom-5 left-5 bg-gray-800 bg-opacity-70 p-5 rounded-lg text-white">
